@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>{{ users.first_name }}</title>
+</head>
+<body>
+    {% for user in users %}
+    <h1>{{user.first_name}} {{user.last_name}}</h1>
+    <div class="box">
+        <h4>User #{{ user.id }}</h4>
+        <h4>Email: {{ user.email }}</h4>
+        <h4>Created On: {{ user.created_at }}</h4>
+        <h4>Last Updated At: {{ user.updated_at }}</h4>
+    </div>
+    {% endfor %}
+    <a href="/login">Home</a>
+    <a href="/logout">Logout</a>
+</body>
+</html>
